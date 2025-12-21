@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kernelium OS</title>
+    <style>
+        :root {
+            --bg-color: #0f0f12; /* Temná černá */
+            --text-color: #e0e0e0; /* Světle šedá */
+            --accent-color: #d65d0e; /* Rust Orange */
+            --accent-secondary: #98971a; /* Terminal Green */
+            --card-bg: #1d2021;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Courier New', Courier, monospace; /* Monospace pro dev look */
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: radial-gradient(circle at center, #1d2021 0%, #0f0f12 70%);
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent-secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        section {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--card-bg);
+            padding-bottom: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-left: 4px solid var(--accent-secondary);
+            border-radius: 4px;
+        }
+
+        .card h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--card-bg);
+            margin-top: 4rem;
+            opacity: 0.6;
+        }
+
+        code {
+            background: #000;
+            padding: 2px 5px;
+            color: var(--accent-secondary);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Kernelium</h1>
+        <p class="tagline">"Všechno je objekt."</p>
+        <p>Experimentální operační systém napsaný v Rustu.</p>
+        <p>Bez souborů. Bez složek. Řízený AI.</p>
+        <a href="https://github.com/sejkoramartin/kernelium" class="btn">Zobrazit na GitHubu</a>
+    </header>
+
+    <section id="vision">
+        <h2>Vize 21. století</h2>
+        <p>Dnešní operační systémy stále trpí dědictvím 70. let. Soubory, adresáře, složité cesty... to je minulost. [span_4](start_span)[span_5](start_span)Kernelium přináší revoluční změnu paradigmatu[span_4](end_span)[span_5](end_span):</p>
+    </section>
+
+    <section id="features">
+        <div class="grid">
+            <div class="card">
+                <h3>Objektový Log</h3>
+                <p>Místo souborového systému používáme append-only log. [span_6](start_span)[span_7](start_span)Žádná fragmentace, atomické operace, okamžité snapshoty a "time-travel" funkce[span_6](end_span)[span_7](end_span).</p>
+            </div>
+            <div class="card">
+                <h3>AI Shell</h3>
+                <p>Příkazová řádka je mrtvá. Kernelium ovládáte záměrem. "Přehraj hudbu ze včerejška." [span_8](start_span)AI rozumí kontextu a vztahům mezi objekty[span_8](end_span).</p>
+            </div>
+            <div class="card">
+                <h3>Rust Safety</h3>
+                <p>Jádro napsané v Rustu zaručuje paměťovou bezpečnost. Žádné buffer overflows, žádné modré smrti způsobené chybou v ovladači.</p>
+            </div>
+            <div class="card">
+                <h3>Distribuovaný Výkon</h3>
+                <p>Jeden kernel na více strojích. [span_9](start_span)Kernelium umí "přelít" objekty a výpočty na jiný počítač v síti, aniž by to uživatel poznal[span_9](end_span).</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="status">
+        <h2>Aktuální Stav (v0.1.0)</h2>
+        <p>Kernelium je ve fázi aktivního vývoje (Pre-alpha). Co už funguje:</p>
+        <ul style="list-style-type: square; margin-left: 20px; margin-top: 20px;">
+            <li>✅ Vlastní Bootloader</li>
+            <li>✅ VGA Textový režim (Barevný výstup)</li>
+            <li>✅ Panic Handler ("Red Screen of Death")</li>
+            <li>✅ Hardwarová přerušení (PIC & IDT)</li>
+            <li>🚧 Ovladač klávesnice a správa paměti (WIP)</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Martin Sejkora & Kernelium Project.</p>
+        <p><i>The operating system is the database.</i></p>
+    </footer>
+
+</body>
+</html>
