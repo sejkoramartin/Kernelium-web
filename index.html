@@ -9,8 +9,8 @@
         :root {
             --bg-color: #0f0f12;
             --text-color: #e0e0e0;
-            --accent-color: #d65d0e;     /* Rust orange */
-            --accent-secondary: #98971a; /* Terminal green */
+            --accent-color: #d65d0e;
+            --accent-secondary: #98971a;
             --card-bg: #1d2021;
         }
 
@@ -152,12 +152,6 @@
             margin-top: 4rem;
             opacity: 0.6;
         }
-
-        code {
-            background: #000;
-            padding: 2px 5px;
-            color: var(--accent-secondary);
-        }
     </style>
 </head>
 
@@ -167,7 +161,7 @@
     <h1>Kernelium</h1>
     <p class="tagline">„Všechno je objekt.“</p>
     <p>Experimentální operační systém napsaný v Rustu.</p>
-    <p>Bez souborů. Bez složek. Event-driven.</p>
+    <p>Bez souborů. Bez složek. Řízený událostmi.</p>
 
     <a class="btn" href="https://github.com/sejkoramartin/kernelium">
         Zobrazit na GitHubu
@@ -175,47 +169,56 @@
 </header>
 
 <section id="vision">
-    <h2>Vize 21. století</h2>
+    <h2>Vize</h2>
     <p>
-        Dnešní operační systémy stále trpí dědictvím 70. let.
-        Soubory, adresáře, cesty a oprávnění jsou historický kompromis.
-        Kernelium staví na jiné myšlence:
+        Současné operační systémy jsou zatíženy historickými kompromisy:
+        soubory, adresáře, cesty a oprávnění vznikly v době, kdy paměť
+        a výpočetní výkon byly extrémně omezené.
         <br><br>
-        <strong>Operační systém je databáze objektů.</strong>
+        <strong>Kernelium staví na jiné myšlence.</strong>
+        <br><br>
+        Operační systém není kolekce souborů,
+        ale <strong>živý objektový stavový model</strong>,
+        kde každá entita má identitu, chování a vztahy k ostatním.
     </p>
 </section>
 
-<section id="features">
+<section id="principles">
+    <h2>Základní principy</h2>
+
     <div class="grid">
         <div class="card">
-            <h3>Objektový Log</h3>
+            <h3>Všechno je objekt</h3>
             <p>
-                Místo souborového systému používáme append-only objektový log.
-                Atomické změny, snapshoty a možnost návratu v čase.
+                Procesy, zařízení, vstupy i systémové služby jsou objekty.
+                Neexistují speciální případy ani skryté výjimky.
             </p>
         </div>
 
         <div class="card">
-            <h3>Event-Driven Kernel</h3>
+            <h3>Event-driven architektura</h3>
             <p>
-                Přerušení pouze produkují události.
-                Kernel reaguje deterministicky pomocí zpráv a dispatcherů.
+                Přerušení pouze generují události.
+                Veškerá logika probíhá deterministicky
+                v hlavní smyčce kernelu.
             </p>
         </div>
 
         <div class="card">
-            <h3>Rust Safety</h3>
+            <h3>Žádná zpětná kompatibilita</h3>
             <p>
-                Jádro napsané v Rustu minimalizuje třídy chyb,
-                které jsou běžné v tradičních kernlech.
+                Kernelium se nesnaží emulovat POSIX
+                ani chování historických systémů.
+                Čistý návrh má přednost.
             </p>
         </div>
 
         <div class="card">
-            <h3>Bez POSIX zátěže</h3>
+            <h3>Kontrolovaná paměť</h3>
             <p>
-                Kernelium se nesnaží být kompatibilní.
-                Čistá architektura má přednost před historií.
+                Žádný skrytý heap.
+                Každá alokace má jasné vlastnictví
+                a předvídatelné chování.
             </p>
         </div>
     </div>
@@ -259,7 +262,7 @@
 
 <footer>
     <p>&copy; 2025 Martin Sejkora – Kernelium Project</p>
-    <p><i>The operating system is the database.</i></p>
+    <p><i>Object-oriented. Event-driven. Deterministic.</i></p>
 </footer>
 
 </body>
