@@ -20,7 +20,7 @@
             font-family: "Courier New", Courier, monospace;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         header {
@@ -97,7 +97,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Progress */
         .progress-wrapper {
             margin-top: 2rem;
             display: flex;
@@ -118,7 +117,14 @@
         .wip  { border-color: var(--accent-color); color: #ffb86c; }
         .todo { border-color: #555; color: #888; }
 
-        /* Language switch */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--card-bg);
+            margin-top: 4rem;
+            opacity: 0.6;
+        }
+
         .lang-switch {
             position: absolute;
             top: 20px;
@@ -140,13 +146,7 @@
             color: var(--accent-color);
         }
 
-        footer {
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid var(--card-bg);
-            margin-top: 4rem;
-            opacity: 0.6;
-        }
+        [data-lang] { display: none; }
     </style>
 </head>
 
@@ -158,136 +158,90 @@
         <button onclick="setLang('en')">EN</button>
     </div>
 
-    <h1 data-i18n="title">Kernelium</h1>
-    <p class="tagline" data-i18n="tagline">„Všechno je objekt.“</p>
-    <p data-i18n="subtitle">Experimentální operační systém napsaný v Rustu.</p>
-    <p data-i18n="subtitle2">Bez souborů. Bez složek. Řízený událostmi.</p>
+    <h1>Kernelium</h1>
+    <p class="tagline">„Všechno je objekt.“</p>
 
-    <a class="btn" href="https://github.com/sejkoramartin/kernelium"
-       data-i18n="github">Zobrazit na GitHubu</a>
+    <div data-lang="cs">
+        <p>Experimentální operační systém napsaný v Rustu.</p>
+        <p>Bez souborů. Bez složek. Řízený událostmi.</p>
+    </div>
+
+    <div data-lang="en">
+        <p>Experimental operating system written in Rust.</p>
+        <p>No files. No folders. Event-driven.</p>
+    </div>
+
+    <a class="btn" href="https://github.com/sejkoramartin/kernelium">
+        GitHub
+    </a>
 </header>
 
-<section>
-    <h2 data-i18n="vision_title">Vize</h2>
-    <p data-i18n="vision_text">
-        Kernelium je objektově orientovaný, event-driven operační systém.
-        Nepracuje se soubory, ale s objekty, jejich stavem a vztahy.
+<section data-lang="cs">
+    <h2>Vize</h2>
+    <p>
+        Současné operační systémy jsou zatíženy historickými kompromisy,
+        které vznikly v době, kdy paměť i výpočetní výkon byly extrémně omezené.
+        Soubory, adresáře a cesty nejsou fundamentem výpočetních systémů,
+        ale pouhou implementační berličkou.
+        <br><br>
+        Kernelium staví na jiné myšlence.
+        Operační systém není kolekce souborů,
+        ale živý objektový stavový model,
+        kde každá entita má identitu, chování a vztahy k ostatním.
     </p>
 </section>
 
-<section>
-    <h2 data-i18n="principles_title">Základní principy</h2>
+<section data-lang="en">
+    <h2>Vision</h2>
+    <p>
+        Modern operating systems are burdened by historical compromises
+        created in an era of extremely limited memory and computing power.
+        Files, directories, and paths are not fundamental concepts of computation,
+        but merely implementation artifacts.
+        <br><br>
+        Kernelium is built on a different idea.
+        An operating system is not a collection of files,
+        but a living object-based state model,
+        where every entity has identity, behavior, and relationships.
+    </p>
+</section>
 
-    <div class="grid">
-        <div class="card">
-            <h3 data-i18n="p1_title">Všechno je objekt</h3>
-            <p data-i18n="p1_text">Procesy, zařízení i vstupy jsou objekty.</p>
-        </div>
-
-        <div class="card">
-            <h3 data-i18n="p2_title">Event-driven kernel</h3>
-            <p data-i18n="p2_text">Přerušení pouze produkují události.</p>
-        </div>
-
-        <div class="card">
-            <h3 data-i18n="p3_title">Bez POSIX zátěže</h3>
-            <p data-i18n="p3_text">Čistá architektura bez historických kompromisů.</p>
-        </div>
-
-        <div class="card">
-            <h3 data-i18n="p4_title">Determinismus</h3>
-            <p data-i18n="p4_text">Žádné skryté alokace, žádné magie.</p>
-        </div>
+<section data-lang="cs">
+    <h2>Stav vývoje jádra</h2>
+    <div class="progress-wrapper">
+        <div class="progress-item done"><span>Boot & VGA</span><span>HOTOVO</span></div>
+        <div class="progress-item done"><span>IDT / PIC / IRQ</span><span>HOTOVO</span></div>
+        <div class="progress-item wip"><span>Event System</span><span>ROZPRACOVÁNO</span></div>
+        <div class="progress-item todo"><span>Object Model</span><span>PLÁN</span></div>
+        <div class="progress-item todo"><span>Memory Management</span><span>PLÁN</span></div>
     </div>
 </section>
 
-<section>
-    <h2 data-i18n="progress_title">Stav vývoje jádra</h2>
-
+<section data-lang="en">
+    <h2>Kernel Development Status</h2>
     <div class="progress-wrapper">
-        <div class="progress-item done">
-            <span>Boot & VGA</span><span data-i18n="done">HOTOVO</span>
-        </div>
-        <div class="progress-item done">
-            <span>IDT / PIC / IRQ</span><span data-i18n="done">HOTOVO</span>
-        </div>
-        <div class="progress-item wip">
-            <span>Event System</span><span data-i18n="wip">ROZPRACOVÁNO</span>
-        </div>
-        <div class="progress-item todo">
-            <span>Object Model</span><span data-i18n="plan">PLÁN</span>
-        </div>
+        <div class="progress-item done"><span>Boot & VGA</span><span>DONE</span></div>
+        <div class="progress-item done"><span>IDT / PIC / IRQ</span><span>DONE</span></div>
+        <div class="progress-item wip"><span>Event System</span><span>IN PROGRESS</span></div>
+        <div class="progress-item todo"><span>Object Model</span><span>PLANNED</span></div>
+        <div class="progress-item todo"><span>Memory Management</span><span>PLANNED</span></div>
     </div>
 </section>
 
 <footer>
     <p>&copy; 2025 Martin Sejkora – Kernelium</p>
-    <p><i data-i18n="footer">Object-oriented. Event-driven. Deterministic.</i></p>
+    <p><i>Object-oriented. Event-driven. Deterministic.</i></p>
 </footer>
 
 <script>
-const t = {
-    cs: {
-        title: "Kernelium",
-        tagline: "„Všechno je objekt.“",
-        subtitle: "Experimentální operační systém napsaný v Rustu.",
-        subtitle2: "Bez souborů. Bez složek. Řízený událostmi.",
-        github: "Zobrazit na GitHubu",
-        vision_title: "Vize",
-        vision_text: "Kernelium je objektově orientovaný, event-driven operační systém.",
-        principles_title: "Základní principy",
-        p1_title: "Všechno je objekt",
-        p1_text: "Procesy, zařízení i vstupy jsou objekty.",
-        p2_title: "Event-driven kernel",
-        p2_text: "Přerušení pouze produkují události.",
-        p3_title: "Bez POSIX zátěže",
-        p3_text: "Čistá architektura bez historie.",
-        p4_title: "Determinismus",
-        p4_text: "Žádné skryté alokace.",
-        progress_title: "Stav vývoje jádra",
-        done: "HOTOVO",
-        wip: "ROZPRACOVÁNO",
-        plan: "PLÁN",
-        footer: "Object-oriented. Event-driven. Deterministic."
-    },
-    en: {
-        title: "Kernelium",
-        tagline: "“Everything is an object.”",
-        subtitle: "Experimental operating system written in Rust.",
-        subtitle2: "No files. No folders. Event-driven.",
-        github: "View on GitHub",
-        vision_title: "Vision",
-        vision_text: "Kernelium is an object-oriented, event-driven operating system.",
-        principles_title: "Core Principles",
-        p1_title: "Everything is an object",
-        p1_text: "Processes, devices and input are objects.",
-        p2_title: "Event-driven kernel",
-        p2_text: "Interrupts only produce events.",
-        p3_title: "No POSIX legacy",
-        p3_text: "Clean design over compatibility.",
-        p4_title: "Determinism",
-        p4_text: "No hidden allocations.",
-        progress_title: "Kernel Development Status",
-        done: "DONE",
-        wip: "IN PROGRESS",
-        plan: "PLANNED",
-        footer: "Object-oriented. Event-driven. Deterministic."
-    }
-};
-
-function setLang(l) {
-    localStorage.setItem("kernelium-lang", l);
-    applyLang(l);
-}
-
-function applyLang(l) {
-    document.querySelectorAll("[data-i18n]").forEach(e => {
-        const k = e.getAttribute("data-i18n");
-        if (t[l][k]) e.textContent = t[l][k];
+function setLang(lang) {
+    localStorage.setItem("kernelium-lang", lang);
+    document.querySelectorAll("[data-lang]").forEach(e => {
+        e.style.display = e.getAttribute("data-lang") === lang ? "block" : "none";
     });
 }
 
-applyLang(localStorage.getItem("kernelium-lang") || "cs");
+setLang(localStorage.getItem("kernelium-lang") || "cs");
 </script>
 
 </body>
